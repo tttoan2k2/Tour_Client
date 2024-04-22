@@ -1,8 +1,10 @@
 "use client"
 import { UserButton } from "@clerk/nextjs";
 import { Home, Menu } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import Logo from "../../public/logo.svg"
 
 const Navbar = () => {
     const [dropMenu, setDropMenu] = useState(false)
@@ -11,25 +13,35 @@ const Navbar = () => {
         <div className="flex justify-between items-center p-5">
 
             <Link href="/">
-                <h1 className="text-[50px]">Tour </h1>
+                <Image alt="" src={Logo}/>
             </Link>
 
-            <ul className="flex justify-center gap-5 max-md:hidden">
+            <ul className="flex justify-center gap-10 max-md:hidden text-[20px] font-medium">
                 <Link href="/home">
-                    <li className="flex  justify-center items-center gap-3 text-[20px]" >
-                        <Home />home
+                    <li >
+                        Home
                     </li>
                 </Link>
 
-                <Link href="/tag">
-                    <li className="flex  justify-center items-center gap-3 text-[20px]" >
-                        <Home />tag
+                <Link href="/tours">
+                    <li >
+                        Tours
+                    </li>
+                </Link>
+                <Link href="/blog">
+                    <li >
+                        Blog
                     </li>
                 </Link>
 
-                <Link href="/name">
-                    <li className="flex  justify-center items-center gap-3 text-[20px]" >
-                        <Home />na
+                <Link href="/about">
+                    <li >
+                        About us
+                    </li>
+                </Link>
+                <Link href="/contact">
+                    <li >
+                        Contact
                     </li>
                 </Link>
             </ul>
@@ -39,22 +51,32 @@ const Navbar = () => {
                 {dropMenu && (
                     <ul className=" absolute top-[60px] left-[-30px] shadow-md bg-white p-5 border-[1px] rounded-lg flex flex-col items-start justify-start gap-3">
                         <Link href="/home">
-                            <li className="flex  justify-center items-center gap-3 text-[20px]" >
-                                <Home />home
-                            </li>
-                        </Link>
+                    <li >
+                        Home
+                    </li>
+                </Link>
 
-                        <Link href="/tag">
-                            <li className="flex  justify-center items-center gap-3 text-[20px]" >
-                                <Home />tag
-                            </li>
-                        </Link>
+                <Link href="/tours">
+                    <li >
+                        Tours
+                    </li>
+                </Link>
+                <Link href="/blog">
+                    <li >
+                        Blog
+                    </li>
+                </Link>
 
-                        <Link href="/name">
-                            <li className="flex  justify-center items-center gap-3 text-[20px]" >
-                                <Home />na
-                            </li>
-                        </Link>
+                <Link href="/about">
+                    <li >
+                        About us
+                    </li>
+                </Link>
+                <Link href="/contact">
+                    <li >
+                        Contact
+                    </li>
+                </Link>
                     </ul>)}
             </div>
 
