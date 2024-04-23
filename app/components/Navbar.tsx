@@ -17,7 +17,7 @@ const Navbar = () => {
             </Link>
 
             <ul className="flex justify-center gap-10 max-md:hidden text-[20px] font-medium">
-                <Link href="/home">
+                <Link href="/">
                     <li >
                         Home
                     </li>
@@ -49,8 +49,8 @@ const Navbar = () => {
                 <UserButton />
                 <Menu onClick={() => setDropMenu(!dropMenu)} />
                 {dropMenu && (
-                    <ul className=" absolute top-[60px] left-[-30px] shadow-md bg-white p-5 border-[1px] rounded-lg flex flex-col items-start justify-start gap-3">
-                        <Link href="/home">
+                    <ul className=" absolute z-20 top-[60px] left-[-30px] shadow-md bg-white p-5 border-[1px] rounded-lg flex flex-col items-start justify-start gap-3">
+                        <Link href="/">
                     <li >
                         Home
                     </li>
