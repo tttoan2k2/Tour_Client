@@ -1,86 +1,120 @@
-"use client"
-import { UserButton } from "@clerk/nextjs";
-import { Home, Menu } from "lucide-react";
+"use client";
+import { UserButton, useUser } from "@clerk/nextjs";
+import { CircleUserRound, Home, Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import Logo from "../../public/logo.svg"
+import Logo from "../../public/logo.svg";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-    const [dropMenu, setDropMenu] = useState(false)
-    console.log(dropMenu)
+    const { user } = useUser();
+    const pathname = usePathname();
+    const [dropMenu, setDropMenu] = useState(false);
+    console.log(dropMenu);
     return (
-        <div className="flex justify-between items-center p-5">
-
+        <div className="sticky top-0 left-0 z-[1000] flex justify-between items-center py-4 px-5 md:px-10 shadow-lg bg-white">
             <Link href="/">
-                <Image alt="" src={Logo}/>
+                <Image alt="" src={Logo} />
             </Link>
 
-            <ul className="flex justify-center gap-10 max-md:hidden text-[20px] font-medium">
-                <Link href="/">
-                    <li >
-                        Home
-                    </li>
+            <ul className="flex justify-center gap-10 max-md:hidden text-[18px] font-normal">
+                <Link
+                    href="/"
+                    className={`${pathname === "/" && "text-orange-500"}`}
+                >
+                    <li>Home</li>
                 </Link>
 
-                <Link href="/tours">
-                    <li >
-                        Tours
-                    </li>
+                <Link
+                    href="/tours"
+                    className={`${pathname === "/tours" && "text-orange-500"}`}
+                >
+                    <li className="hover:text-orange-500">Tours</li>
                 </Link>
-                <Link href="/blog">
-                    <li >
-                        Blog
-                    </li>
+                <Link
+                    href="/blogs"
+                    className={`${pathname === "/blogs" && "text-orange-500"}`}
+                >
+                    <li className="hover:text-orange-500">Blog</li>
                 </Link>
 
-                <Link href="/about">
-                    <li >
-                        About us
-                    </li>
+                <Link
+                    href="/about"
+                    className={`${pathname === "/about" && "text-orange-500"}`}
+                >
+                    <li className="hover:text-orange-500">About us</li>
                 </Link>
-                <Link href="/contact">
-                    <li >
-                        Contact
-                    </li>
+                <Link
+                    href="/contact"
+                    className={`${
+                        pathname === "/contact" && "text-orange-500"
+                    }`}
+                >
+                    <li className="hover:text-orange-500">Contact</li>
                 </Link>
             </ul>
             <div className="flex items-center justify-center gap-4 border-[1px] p-3 rounded-[40px] shadow-md relative">
-                <UserButton />
-                <Menu onClick={() => setDropMenu(!dropMenu)} />
+                {user ? (
+                    <UserButton afterSignOutUrl="/sign-in" />
+                ) : (
+                    <Link href="/sign-in">
+                        <p className="">Sign in</p>
+                    </Link>
+                )}
+                <Menu
+                    onClick={() => setDropMenu(!dropMenu)}
+                    className="md:hidden"
+                />
                 {dropMenu && (
-                    <ul className=" absolute z-20 top-[60px] left-[-30px] shadow-md bg-white p-5 border-[1px] rounded-lg flex flex-col items-start justify-start gap-3">
-                        <Link href="/">
-                    <li >
-                        Home
-                    </li>
-                </Link>
+                    <ul className=" absolute z-[1000] top-[60px] left-[-90px] shadow-md bg-white p-3 border-[1px] rounded-lg flex flex-col items-start justify-start gap-3 min-w-[180px]">
+                        <Link
+                            href="/"
+                            className={`${
+                                pathname === "/" && "text-orange-500"
+                            } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
+                        >
+                            <li className="">Home</li>
+                        </Link>
 
-                <Link href="/tours">
-                    <li >
-                        Tours
-                    </li>
-                </Link>
-                <Link href="/blog">
-                    <li >
-                        Blog
-                    </li>
-                </Link>
+                        <Link
+                            href="/tours"
+                            className={`${
+                                pathname === "/tours" && "text-orange-500"
+                            } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
+                        >
+                            <li className="hover:text-orange-500">Tours</li>
+                        </Link>
+                        <Link
+                            href="/blogs"
+                            className={`${
+                                pathname === "/blogs" && "text-orange-500"
+                            } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
+                        >
+                            <li className="hover:text-orange-500">Blog</li>
+                        </Link>
 
-                <Link href="/about">
-                    <li >
-                        About us
-                    </li>
-                </Link>
-                <Link href="/contact">
-                    <li >
-                        Contact
-                    </li>
-                </Link>
-                    </ul>)}
+                        <Link
+                            href="/about"
+                            className={`${
+                                pathname === "/about" && "text-orange-500"
+                            } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
+                        >
+                            <li className="hover:text-orange-500">About us</li>
+                        </Link>
+                        <Link
+                            href="/contact"
+                            className={`${
+                                pathname === "/contact" && "text-orange-500"
+                            } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
+                        >
+                            <li>Contact</li>
+                        </Link>
+                    </ul>
+                )}
             </div>
-
-        </div>);
+        </div>
+    );
 };
 
 export default Navbar;
