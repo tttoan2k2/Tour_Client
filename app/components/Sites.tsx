@@ -8,10 +8,10 @@ const Sites = async () => {
     const sites = await getSites();
 
     return (
-        <div className="my-[80px] px-[20px] md:px-[50px]">
+        <div className="my-[80px] px-[20px] md:px-[100px]">
             <div className="flex flex-col items-center justify-center">
                 <h1 className="text-[50px] font-bold text-center">Địa Danh</h1>
-                <p className="mb-[30px] text-[18px] text-center">
+                <p className="mb-[30px] text-[18px] text-center text-gray-500">
                     Chúng tôi có các Tour ở {sites.length} quốc gia và vùng lãnh
                     thổ trên toàn thế giới.
                 </p>
@@ -23,7 +23,7 @@ const Sites = async () => {
                         key={site._id}
                         href={`/sites/${site._id}`}
                     >
-                        <div className="relative hover:scale-105 duration-150">
+                        <div className="relative hover:scale-105 duration-200 ease-linear">
                             <Image
                                 className="w-[400px] h-[250px] rounded-[20px]  "
                                 src={site.image}

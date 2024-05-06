@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Poppins } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "../globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 // const inter = Inter({ subsets: ["latin"] });
-const poppins = Poppins({
+// const poppins = Poppins({
+//     subsets: ["latin"],
+//     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+// });
+
+const roboto = Roboto({
     subsets: ["latin"],
-    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+    weight: ["100", "300", "400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -24,10 +31,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={poppins.className}>
+            <body className={roboto.className}>
                 <ClerkProvider>
                     <Navbar />
                     {children}
+                    <Footer />
                 </ClerkProvider>
             </body>
         </html>
