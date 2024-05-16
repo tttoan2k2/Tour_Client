@@ -1,10 +1,10 @@
 "use client";
 import { UserButton, useUser } from "@clerk/nextjs";
-import { CircleUserRound, Home, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import Logo from "../../public/logo.svg";
+import Logo from "../public/logo.svg";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {

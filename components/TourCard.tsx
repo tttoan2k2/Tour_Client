@@ -7,7 +7,7 @@ const TourCard = ({ tour }: { tour: TourType }) => {
     return (
         <Link
             href={`/tours/${tour._id}`}
-            className="bg-white rounded-[12px] shadow-lg"
+            className="bg-white rounded-[12px] shadow-lg w-[400px]"
         >
             <div className="p-5">
                 <Image

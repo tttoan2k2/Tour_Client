@@ -1,6 +1,6 @@
-import Sites from "../components/Sites";
-import Slider from "../components/Slider";
-import TourList from "../components/TourList";
+import Sites from "../../components/Sites";
+import Slider from "../../components/Slider";
+import TourList from "../../components/TourList";
 
 export default function Home() {
     return (

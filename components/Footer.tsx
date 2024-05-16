@@ -1,8 +1,7 @@
 import Image from "next/image";
-import Logo from "../../public/logo.svg";
-import Google from "../../public/google.jpg";
-import AppStore from "../../public/appstore.jpg";
-import Images from "../../public/images.jpg";
+import Logo from "../public/logo.svg";
+import Google from "../public/google.jpg";
+import AppStore from "../public/appstore.jpg";
 import { Handshake } from "lucide-react";
 import Link from "next/link";
 
