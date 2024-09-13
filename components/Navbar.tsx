@@ -11,19 +11,19 @@ const Navbar = () => {
     const { user } = useUser();
     const pathname = usePathname();
     const [dropMenu, setDropMenu] = useState(false);
-    console.log(dropMenu);
+
     return (
-        <div className="sticky top-0 left-0 z-[1000] flex justify-between items-center py-4 px-5 md:px-10 shadow-lg bg-white">
+        <div className="sticky top-0 left-0 z-[1000] flex justify-between items-center py-4 px-5 shadow-lg bg-white">
             <Link href="/">
                 <Image alt="" src={Logo} />
             </Link>
 
-            <ul className="flex justify-center gap-10 max-md:hidden text-[18px] font-normal">
+            <ul className="flex justify-center gap-5 lg:gap-10 max-md:hidden text-[18px] font-normal">
                 <Link
                     href="/"
                     className={`${pathname === "/" && "text-orange-500"}`}
                 >
-                    <li>Home</li>
+                    <li>Trang chủ</li>
                 </Link>
 
                 <Link
@@ -33,25 +33,26 @@ const Navbar = () => {
                     <li className="hover:text-orange-500">Tours</li>
                 </Link>
                 <Link
-                    href="/blogs"
-                    className={`${pathname === "/blogs" && "text-orange-500"}`}
+                    href="/livestream"
+                    className={`${
+                        pathname === "/livestream" && "text-orange-500"
+                    }`}
                 >
-                    <li className="hover:text-orange-500">Blog</li>
+                    <li className="hover:text-orange-500">Live stream</li>
                 </Link>
 
                 <Link
-                    href="/about"
-                    className={`${pathname === "/about" && "text-orange-500"}`}
+                    href="/news"
+                    className={`${pathname === "/news" && "text-orange-500"}`}
                 >
-                    <li className="hover:text-orange-500">About us</li>
+                    <li className="hover:text-orange-500">Tin Tức</li>
                 </Link>
+
                 <Link
-                    href="/contact"
-                    className={`${
-                        pathname === "/contact" && "text-orange-500"
-                    }`}
+                    href="/order"
+                    className={`${pathname === "/order" && "text-orange-500"}`}
                 >
-                    <li className="hover:text-orange-500">Contact</li>
+                    <li className="hover:text-orange-500">Tours đã đặt</li>
                 </Link>
             </ul>
             <div className="flex items-center justify-center gap-4 border-[1px] p-3 rounded-[40px] shadow-md relative">
@@ -74,7 +75,7 @@ const Navbar = () => {
                                 pathname === "/" && "text-orange-500"
                             } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
                         >
-                            <li className="">Home</li>
+                            <li className="">Trang chủ</li>
                         </Link>
 
                         <Link
@@ -86,12 +87,14 @@ const Navbar = () => {
                             <li className="hover:text-orange-500">Tours</li>
                         </Link>
                         <Link
-                            href="/blogs"
+                            href="/livestream"
                             className={`${
-                                pathname === "/blogs" && "text-orange-500"
+                                pathname === "/livestream" && "text-orange-500"
                             } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
                         >
-                            <li className="hover:text-orange-500">Blog</li>
+                            <li className="hover:text-orange-500">
+                                Live stream
+                            </li>
                         </Link>
 
                         <Link
@@ -100,7 +103,9 @@ const Navbar = () => {
                                 pathname === "/about" && "text-orange-500"
                             } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
                         >
-                            <li className="hover:text-orange-500">About us</li>
+                            <li className="hover:text-orange-500">
+                                Về chúng tôi
+                            </li>
                         </Link>
                         <Link
                             href="/contact"
@@ -108,7 +113,7 @@ const Navbar = () => {
                                 pathname === "/contact" && "text-orange-500"
                             } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
                         >
-                            <li>Contact</li>
+                            <li>Liên hệ</li>
                         </Link>
                     </ul>
                 )}

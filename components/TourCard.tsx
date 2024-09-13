@@ -7,7 +7,7 @@ const TourCard = ({ tour }: { tour: TourType }) => {
     return (
         <Link
             href={`/tours/${tour._id}`}
-            className="bg-white rounded-[12px] shadow-lg w-[400px]"
+            className="bg-white rounded-[12px] shadow-lg w-[330px] h-[625px] flex flex-col items-center justify-between"
         >
             <div className="p-5">
                 <Image
@@ -27,6 +27,7 @@ const TourCard = ({ tour }: { tour: TourType }) => {
                     {tour.description}
                 </p>
                 <p>Điểm khởi hành: {tour.diem_khoi_hanh}</p>
+                <p>Loại hình: {tour.category}</p>
                 <div className="flex gap-2 items-center pb-3">
                     <Calendar size={18} />
                     <p>Bắt đầu từ: {tour.thoi_gian[0]}</p>
@@ -35,7 +36,7 @@ const TourCard = ({ tour }: { tour: TourType }) => {
                     <div>
                         <p className="">Giá từ</p>
                         <p className="font-semibold text-orange-500 text-[20px]">
-                            {tour.price} đ
+                            {tour.price.toLocaleString("vi-VN")} đ
                         </p>
                     </div>
                     <div className="flex items-center gap-3 text-[14px] font-semibold text-black">

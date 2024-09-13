@@ -22,3 +22,23 @@ type TourType = {
     createdAt: Date;
     updatedAt: Date;
 };
+
+type OrderType = {
+    _id: string;
+    customerClerkId: string;
+    tours: [OrderItemType];
+    totalAmount: number;
+    createdAt: string;
+};
+
+type OrderItemType = {
+    tour: TourType;
+    tourName: string;
+    tourDate: string;
+    adultPrice: number;
+    adultQuantity: number;
+    childrenPrice: number;
+    childrenQuantity: number;
+    infantPrice: number;
+    infantQuantity: number;
+};

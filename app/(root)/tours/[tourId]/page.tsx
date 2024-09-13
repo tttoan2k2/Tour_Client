@@ -1,19 +1,19 @@
 import Media from "@/components/Media";
+import TourCard from "@/components/TourCard";
 import TourDetailsInfo from "@/components/TourDetailsInfo";
-import { getTourDetails } from "@/lib/actions";
+import { getRelatedTours, getTourDetails } from "@/lib/actions";
 import { Check, Dot } from "lucide-react";
-
-import React from "react";
 
 const TourDetails = async ({ params }: { params: { tourId: string } }) => {
     const tourDetails = await getTourDetails(params.tourId);
+    const relatedTours = await getRelatedTours(params.tourId);
 
     return (
-        <div className="px-[20px] md:px-[100px] pb-[50px]">
-            <h1 className=" font-medium text-[28px] my-[30px]">
+        <div className="px-[20px] lg:px-[100px] pb-[50px]">
+            <h1 className=" font-medium text-[30px] md:text-[40px] my-[20px] md:my-[30px]">
                 Tour du lịch {tourDetails.title}
             </h1>
-            <div className="flex items-start justify-center gap-10">
+            <div className="flex flex-col md:flex-row items-start justify-center gap-5 lg:gap-10 mb-[20px]">
                 <Media tourMedia={tourDetails.media} />
                 <TourDetailsInfo tourInfo={tourDetails} />
             </div>
@@ -22,7 +22,7 @@ const TourDetails = async ({ params }: { params: { tourId: string } }) => {
                 <h1 className="font-medium text-[25px]  mb-[20px]">
                     Tour du lịch {tourDetails.title}
                 </h1>
-                <p className="w-[800px] text-gray-900">
+                <p className="w-full lg:w-[800px] text-gray-900">
                     {tourDetails.description}
                 </p>
             </div>
@@ -77,8 +77,21 @@ const TourDetails = async ({ params }: { params: { tourId: string } }) => {
                     ))}
                 </div>
             </div>
+
+            <div className="flex flex-col item-center mt-[30px]">
+                <p className="text-[25px] md:text-[30px] lg:text-[35px] font-bold">
+                    Các Tours có liên quan
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {relatedTours?.map((tour: TourType) => (
+                        <TourCard key={tour._id} tour={tour} />
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };
 
 export default TourDetails;
+
+export const dynamic = "force-dynamic";

@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const Footer = () => {
     return (
-        <div className=" bg-orange-500 px-[100px] py-10 text-white">
-            <div className="flex justify-between">
+        <div className=" bg-orange-500 mb-[80px] px-[20px] lg:px-[100px] w-full py-3 lg:py-10 text-white">
+            <div className="flex md:flex-row flex-col gap-5 justify-between">
                 <div>
                     <Image src={Logo} alt="logo" className="mb-5" />
                     <div className="flex items-center justify-center gap-5 bg-orange-400 p-5 rounded-lg cursor-pointer hover:bg-orange-300">

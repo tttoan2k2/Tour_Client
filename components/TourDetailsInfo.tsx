@@ -54,8 +54,8 @@ const TourDetailsInfo = ({ tourInfo }: { tourInfo: TourType }) => {
                         body: JSON.stringify({
                             tourItem: {
                                 title: tourInfo.title,
-                                _id: tourInfo._id,
-                                tour_date: date,
+                                id: tourInfo._id,
+                                tour_date: date?.toDateString(),
                                 diem_khoi_hanh: tourInfo.diem_khoi_hanh,
                                 adultPrice: adultPrice,
                                 adultQuantity: adultQuantity,
@@ -63,18 +63,10 @@ const TourDetailsInfo = ({ tourInfo }: { tourInfo: TourType }) => {
                                 childrenQuantity: childrenQuantity,
                                 infantPrice: infantPrice,
                                 infantQuantity: infantQuantity,
-                                total_price:
-                                    adultPrice + childrenPrice + infantPrice,
-                                total_quantity:
-                                    adultQuantity +
-                                    childrenQuantity +
-                                    infantQuantity,
+                                price: 100,
                             },
                             customer,
                         }),
-                        headers: {
-                            "Access-Control-Allow-Origin": "*",
-                        },
                     }
                 );
 
@@ -88,9 +80,9 @@ const TourDetailsInfo = ({ tourInfo }: { tourInfo: TourType }) => {
     };
 
     return (
-        <div className="border-[1px] p-8 rounded-lg w-[420px] shadow-lg">
+        <div className="border-[1px] p-8 rounded-lg w-[350px] lg:w-[420px] shadow-lg">
             <p className="text-[30px] font-bold mb-5">
-                {tourInfo.price}đ /{" "}
+                {tourInfo.price.toLocaleString("vi-VN")}đ /{" "}
                 <i className="text-[16px] font-normal">người</i>
             </p>
             <div className="flex gap-2 mb-3">
@@ -294,27 +286,32 @@ const TourDetailsInfo = ({ tourInfo }: { tourInfo: TourType }) => {
                         <p>Vé người lớn x </p>
                         <p>{adultQuantity}</p>
                     </div>
-                    <p>{adultPrice}đ</p>
+                    <p>{adultPrice.toLocaleString("vi-VN")}đ</p>
                 </div>
                 <div className="flex items-center justify-between">
                     <div className="flex gap-1">
                         <p>Vé trẻ em x </p>
                         <p>{childrenQuantity}</p>
                     </div>
-                    <p>{childrenPrice}đ</p>
+                    <p>{childrenPrice.toLocaleString("vi-VN")}đ</p>
                 </div>
                 <div className="flex items-center justify-between">
                     <div className="flex gap-1">
                         <p>Vé em bé x </p>
                         <p>{infantQuantity}</p>
                     </div>
-                    <p>{infantPrice}đ</p>
+                    <p>{infantPrice.toLocaleString("vi-VN")}đ</p>
                 </div>
             </div>
 
             <div className="border-t-[1px] flex items-center justify-between mt-[30px] pt-[20px] text-[20px] font-medium">
                 <p>Tổng: </p>
-                <p>{adultPrice + childrenPrice + infantPrice}đ</p>
+                <p>
+                    {(adultPrice + childrenPrice + infantPrice).toLocaleString(
+                        "vi-VN"
+                    )}
+                    đ
+                </p>
             </div>
 
             <Button

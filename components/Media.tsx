@@ -12,7 +12,7 @@ const Media = ({ tourMedia }: { tourMedia: string[] }) => {
                 width={800}
                 height={800}
                 alt="product"
-                className="w-[800px] h-[400px] rounded-lg shadow-xl object-cover"
+                className="w-[350px] h-[300px] md:w-[480px] md:h-[300px] lg:w-[800px] lg:h-[400px] rounded-lg shadow-xl object-cover"
             />
             <div className="flex gap-2 overflow-auto tailwind-scrollbar-hide">
                 {tourMedia.map((image, index) => (

@@ -10,8 +10,8 @@ const SearchPage = async ({ params }: { params: { query: string } }) => {
     return (
         <div className="">
             <Slider />
-            <div className="px-[20px] md:px-[100px] py-[50px]">
-                <p className="text-[30px] font-semibold mb-[10px]">
+            <div className="px-[20px] lg:px-[100px] py-[50px]">
+                <p className="text-[20px] md:text-[30px] font-semibold mb-[10px]">
                     Kết quả tìm kiếm cho từ khóa "{decodedQuery}"
                 </p>
                 {!searchedTours ||
@@ -20,7 +20,7 @@ const SearchPage = async ({ params }: { params: { query: string } }) => {
                             Không tìm thấy kết quả phù hợp
                         </p>
                     ))}
-                <div className="grid grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {searchedTours?.map((tour: any) => (
                         <TourCard key={tour._id} tour={tour} />
                     ))}
@@ -31,3 +31,5 @@ const SearchPage = async ({ params }: { params: { query: string } }) => {
 };
 
 export default SearchPage;
+
+export const dynamic = "force-dynamic";

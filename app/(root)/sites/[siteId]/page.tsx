@@ -7,7 +7,7 @@ const SiteDetails = async ({ params }: { params: { siteId: string } }) => {
     const siteDetails = await getSiteDetails(params.siteId);
 
     return (
-        <div className=" px-[20px] md:px-[100px] py-[40px] ">
+        <div className=" px-[20px] lg:px-[100px] py-[40px] ">
             <p className="text-[50px] font-bold text-center mb-[30px]">
                 {siteDetails.title}
             </p>
@@ -34,7 +34,7 @@ const SiteDetails = async ({ params }: { params: { siteId: string } }) => {
                 Hiện nay chúng tôi có {siteDetails.tours.length} ở{" "}
                 {siteDetails.title} với đa dạng điểm đến
             </p>
-            <div className="flex flex-wrap gap-16 justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-[20px]">
                 {siteDetails.tours.map((tour: TourType) => (
                     <TourCard key={tour._id} tour={tour} />
                 ))}
