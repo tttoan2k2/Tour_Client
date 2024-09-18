@@ -25,7 +25,7 @@ export async function POST(request: Request) {
             `Respond to the users' request with a list ` +
             `of the best stops to make in their destination.` +
             `If they are looking for a tour in a country, ask them for a specific destination in that country.` +
-            `Respond in the user's language.`,
+            `Respond in Vietnamese.`,
         messages: convertToCoreMessages(messages),
         tools: {
             searchTours: tool({
