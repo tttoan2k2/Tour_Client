@@ -48,8 +48,8 @@ export default function Page() {
 
     if (token === "") {
         return (
-            <div className="flex text-white">
-                <div className="bg-orange-900 w-[70%] h-screen px-[20px] lg:px-[100px] py-[80px]">
+            <div className="flex flex-col lg:flex-row text-white">
+                <div className="bg-orange-900 w-full lg:w-[70%] h-max lg:h-screen px-[20px] lg:px-[100px] py-[80px]">
                     <div className="flex items-center gap-2 ">
                         <div className="p-3 bg-orange-500 rounded-lg">
                             <Radio className="w-8  h-8" />
@@ -64,7 +64,7 @@ export default function Page() {
                         lịch của bạn
                     </p>
                 </div>
-                <div className="bg-orange-300 w-[30%] flex items-center justify-center flex-col">
+                <div className="bg-orange-300 w-full py-10 lg:py-0 lg:w-[30%] flex items-center justify-center flex-col">
                     <div>
                         <div className="flex items-center gap-2 mb-[5px]">
                             <div className="p-3 bg-orange-500 rounded-lg">
@@ -89,14 +89,14 @@ export default function Page() {
                             type="text"
                             placeholder="Room"
                             value={room}
-                            className="mb-4 px-3 py-2 rounded-lg"
+                            className="mb-4 px-3 py-2 rounded-lg text-black"
                             onChange={(e) => setRoom(e.target.value)}
                         />
                         <input
                             type="text"
                             placeholder="Name"
                             value={name}
-                            className="mb-4 px-3 py-2 rounded-lg"
+                            className="mb-4 px-3 py-2 rounded-lg text-black"
                             onChange={(e) => setName(e.target.value)}
                         />
                         <button

@@ -20,14 +20,14 @@ const News = async () => {
             ) : (
                 <div className="flex items-center justify-center gap-5 flex-col pt-[30px]">
                     {news.map((newItem: any) => (
-                        <div className="flex items-start justify-center gap-5 border-b-[2px] pb-[10px] md:pb-[30px]">
+                        <div className="flex justify-between gap-5 border-b-[2px] pb-[10px] md:pb-[30px]">
                             <img
                                 src={newItem.image}
                                 alt=""
-                                className="lg:w-[400px] lg:h-[200px] w-[150px] h-[150px] object-contain rounded-lg cursor-pointer hover:scale-105 duration-300"
+                                className="lg:w-[400px] lg:h-[200px] w-[150px] h-[150px] object-cover rounded-lg cursor-pointer hover:scale-105 duration-300"
                             />
 
-                            <div>
+                            <div className="w-[800px]">
                                 <Link href={`news/${newItem._id}`}>
                                     <h1 className="text-[18px] lg:text-[22px] font-medium text-black md:mb-[10px] cursor-pointer hover:text-orange-500">
                                         {newItem.title}
