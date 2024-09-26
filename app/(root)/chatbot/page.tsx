@@ -60,12 +60,10 @@ export default function Chat() {
                             tôi!
                         </h1>
                         <p className="text-[#71717A]">
-                            This is an open source AI chatbot app template built
-                            with Next.js , the Vercel AI SDK , and Vercel KV .
-                            It uses React Server Components to combine text with
-                            generative UI as output of the LLM. The UI state is
-                            synced through the SDK so the model is aware of your
-                            interactions as they happen.
+                            Đây là chức năng chat bot mới nhất của chúng tôi.
+                            Bạn có thể đưa ra các yêu cầu, mong muốn của bản
+                            thân, chat bot sẽ đưa ra các Tour du lịch theo yêu
+                            cầu đó.
                         </p>
                     </div>
                     <div className="grid grid-cols-2 gap-3 mt-[50px] w-full">

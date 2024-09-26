@@ -15,6 +15,9 @@ import {
 const Sites = async () => {
     const sites = await getSites();
 
+    const sitesReverse = sites.reverse();
+    console.log(sitesReverse);
+
     return (
         <div className="my-[80px] px-[20px] lg:px-[100px] w-full">
             <div className="flex flex-col items-center justify-center ">

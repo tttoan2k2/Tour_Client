@@ -45,7 +45,16 @@ const Navbar = () => {
                     href="/news"
                     className={`${pathname === "/news" && "text-orange-500"}`}
                 >
-                    <li className="hover:text-orange-500">Tin Tức</li>
+                    <li className="hover:text-orange-500">Tin tức</li>
+                </Link>
+
+                <Link
+                    href="/weather"
+                    className={`${
+                        pathname === "/weather" && "text-orange-500"
+                    }`}
+                >
+                    <li className="hover:text-orange-500">Thời tiết</li>
                 </Link>
 
                 <Link
@@ -98,22 +107,28 @@ const Navbar = () => {
                         </Link>
 
                         <Link
-                            href="/about"
+                            href="/news"
                             className={`${
-                                pathname === "/about" && "text-orange-500"
+                                pathname === "/news" && "text-orange-500"
                             } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
                         >
-                            <li className="hover:text-orange-500">
-                                Về chúng tôi
-                            </li>
+                            <li className="hover:text-orange-500">Tin tức</li>
                         </Link>
                         <Link
-                            href="/contact"
+                            href="/weather"
+                            className={`${
+                                pathname === "/weather" && "text-orange-500"
+                            } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
+                        >
+                            <li className="hover:text-orange-500">Thời tiết</li>
+                        </Link>
+                        <Link
+                            href="/order"
                             className={`${
                                 pathname === "/contact" && "text-orange-500"
                             } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
                         >
-                            <li>Liên hệ</li>
+                            <li>Tour đã đặt</li>
                         </Link>
                     </ul>
                 )}

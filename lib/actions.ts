@@ -54,3 +54,10 @@ export const getRelatedTours = async (tourId: string) => {
     );
     return await relatedTours.json();
 };
+
+// export const swapLocation = async (input: string) => {
+//     const resLocation = await fetch(
+//         `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`
+//     );
+//    return await resLocation.json();
+// }

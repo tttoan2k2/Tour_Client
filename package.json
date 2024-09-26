@@ -30,6 +30,7 @@
     "livekit-client": "^2.3.1",
     "livekit-server-sdk": "^2.5.1",
     "lucide-react": "^0.367.0",
+    "luxon": "^3.5.0",
     "mongoose": "^8.3.1",
     "next": "14.1.4",
     "react": "^18",
@@ -43,6 +44,7 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@types/luxon": "^3.4.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

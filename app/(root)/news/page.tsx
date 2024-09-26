@@ -27,7 +27,7 @@ const News = async () => {
                                 className="lg:w-[400px] lg:h-[200px] w-[150px] h-[150px] object-cover rounded-lg cursor-pointer hover:scale-105 duration-300"
                             />
 
-                            <div className="w-[800px]">
+                            <div className="w-[200px] md:w-[500px] lg:w-[800px]">
                                 <Link href={`news/${newItem._id}`}>
                                     <h1 className="text-[18px] lg:text-[22px] font-medium text-black md:mb-[10px] cursor-pointer hover:text-orange-500">
                                         {newItem.title}
