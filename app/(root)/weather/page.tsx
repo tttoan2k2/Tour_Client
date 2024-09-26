@@ -95,7 +95,7 @@ const Weather = () => {
 
             // hourly
             const hourly = weatherForecastData?.list
-                .map((item: any) => ({
+                ?.map((item: any) => ({
                     temp: item.main.temp,
                     timeTitle: formatToLocalTime(
                         item.dt,
@@ -110,8 +110,8 @@ const Weather = () => {
 
             // daily
             const daily = weatherForecastData?.list
-                .filter((item: any) => item.dt_txt.slice(-8) === "00:00:00")
-                .map((item: any) => ({
+                ?.filter((item: any) => item.dt_txt.slice(-8) === "00:00:00")
+                ?.map((item: any) => ({
                     temp: item.main.temp,
                     timeTitle: formatToLocalTime(
                         item.dt,
