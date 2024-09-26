@@ -20,7 +20,7 @@ const Weather = () => {
     const swapLocation = async () => {
         if (typeof query === "string") {
             const resLocation = await fetch(
-                `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_KEY}`
+                `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_KEY}`
             );
             const locationData = await resLocation.json();
             console.log(locationData);
@@ -36,14 +36,14 @@ const Weather = () => {
     ) => DateTime.fromSeconds(secs + offset, { zone: "utc" }).toFormat(format);
 
     const formatIcon = (icon: any) =>
-        `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
     const getWeather = async () => {
         const dataLocation = await swapLocation();
         console.log(dataLocation);
         if (dataLocation) {
             const resWeather = await fetch(
-                `http://api.openweathermap.org/data/2.5/weather?lat=${dataLocation?.lat}&lon=${dataLocation?.lon}&lang=vi&units=${units}&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_KEY}`
+                `https://api.openweathermap.org/data/2.5/weather?lat=${dataLocation?.lat}&lon=${dataLocation?.lon}&lang=vi&units=${units}&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_KEY}`
             );
             const weatherData = await resWeather.json();
 
@@ -89,7 +89,7 @@ const Weather = () => {
         const dataWeather = await getWeather();
         if (dataWeather) {
             const resWeatherForecast = await fetch(
-                `http://api.openweathermap.org/data/2.5/forecast?lat=${dataWeather?.lat}&lon=${dataWeather?.lon}&lang=vi&units=metric&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`
+                `https://api.openweathermap.org/data/2.5/forecast?lat=${dataWeather?.lat}&lon=${dataWeather?.lon}&lang=vi&units=metric&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_KEY}`
             );
             const weatherForecastData = await resWeatherForecast.json();
 
