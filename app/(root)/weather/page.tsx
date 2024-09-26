@@ -20,7 +20,7 @@ const Weather = () => {
     const swapLocation = async () => {
         if (typeof query === "string") {
             const resLocation = await fetch(
-                `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`
+                `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_KEY}`
             );
             const locationData = await resLocation.json();
             console.log(locationData);
@@ -43,7 +43,7 @@ const Weather = () => {
         console.log(dataLocation);
         if (dataLocation) {
             const resWeather = await fetch(
-                `http://api.openweathermap.org/data/2.5/weather?lat=${dataLocation?.lat}&lon=${dataLocation?.lon}&lang=vi&units=${units}&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}`
+                `http://api.openweathermap.org/data/2.5/weather?lat=${dataLocation?.lat}&lon=${dataLocation?.lon}&lang=vi&units=${units}&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_KEY}`
             );
             const weatherData = await resWeather.json();
 
@@ -86,8 +86,6 @@ const Weather = () => {
     };
 
     const getForecast = async () => {
-        // const dataLocation = await swapLocation();
-        // console.log(dataLocation);
         const dataWeather = await getWeather();
         if (dataWeather) {
             const resWeatherForecast = await fetch(
