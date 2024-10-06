@@ -7,12 +7,15 @@ import { ToolInvocation } from "ai";
 
 import { Bot, Send, User } from "lucide-react";
 import TourCard from "@/components/TourCard";
+import TimeAndLocation from "@/components/TimeAndLocation";
+import TempAndDetails from "@/components/TempAndDetails";
+import Forecast from "@/components/Forecast";
 
 const QUESTIONS = [
     { title: "Tour du lịch Thái Lan" },
     { title: "Tour du lịch Việt Nam" },
-    { title: "Tour du lịch Nhật Bản" },
-    { title: "Tour du lịch Lào" },
+    { title: "Thời tiết ở Đà Nẵng" },
+    { title: "Thời tiết ở Osaka" },
 ];
 
 export default function Chat() {
@@ -32,6 +35,14 @@ export default function Chat() {
         const message = toolInvocation?.result?.message;
         const result = toolInvocation?.result?.result;
 
+        const formatBackground = () => {
+            if (!result?.currentWeather?.transforData)
+                return "from-cyan-600 to-blue-700";
+            if (result?.currentWeather?.transforData?.temp >= 28)
+                return "from-yellow-600 to-orange-700";
+            return "from-cyan-600 to-blue-700";
+        };
+
         switch (toolInvocation.toolName) {
             case "searchTours":
                 return (
@@ -45,6 +56,39 @@ export default function Chat() {
                                     <TourCard key={tour._id} tour={tour} />
                                 ))}
                         </div>
+                    </div>
+                );
+
+            case "weather":
+                return (
+                    <div
+                        key={toolCallId}
+                        className={`px-[20px] lg:px-[100px] bg-gradient-to-br shadow-xl ${formatBackground()} shadow-gray-400  text-white pb-[80px]`}
+                    >
+                        <div className="flex flex-col  pt-[30px]">
+                            <h1 className="text-[30px] md:text-[35px] lg:text-[40px] font-bold ">
+                                Thời tiết
+                            </h1>
+                            <p className="mb-[30px] text-[16px] md:text-[18px] ">
+                                Xem thông tin thời tiết để chuẩn bị cho tour du
+                                lịch của bạn
+                            </p>
+                        </div>
+
+                        <TimeAndLocation
+                            data={result?.currentWeather?.transforData}
+                        />
+                        <TempAndDetails
+                            data={result?.currentWeather?.transforData}
+                        />
+                        <Forecast
+                            title="Dự báo thời tiết trong ngày"
+                            data={result?.forecast?.hourly}
+                        />
+                        <Forecast
+                            title="Dự báo thời tiết 5 ngày tiếp theo"
+                            data={result?.forecast?.daily}
+                        />
                     </div>
                 );
         }

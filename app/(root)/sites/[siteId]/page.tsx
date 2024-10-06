@@ -1,5 +1,5 @@
 import TourCard from "@/components/TourCard";
-import { getSiteDetails, getTours } from "@/lib/actions";
+import { getSiteDetails, getTours, swapLocation } from "@/lib/actions";
 import Image from "next/image";
 import React from "react";
 
