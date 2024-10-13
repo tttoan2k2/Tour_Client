@@ -38,7 +38,7 @@ const Navbar = () => {
                         pathname === "/livestream" && "text-orange-500"
                     }`}
                 >
-                    <li className="hover:text-orange-500">Live stream</li>
+                    <li className="hover:text-orange-500">Meeting</li>
                 </Link>
 
                 <Link
@@ -101,9 +101,7 @@ const Navbar = () => {
                                 pathname === "/livestream" && "text-orange-500"
                             } hover:bg-[#e6dede] w-full rounded-[12px] px-2 py-1 hover:text-orange-500`}
                         >
-                            <li className="hover:text-orange-500">
-                                Live stream
-                            </li>
+                            <li className="hover:text-orange-500">Meeting</li>
                         </Link>
 
                         <Link
